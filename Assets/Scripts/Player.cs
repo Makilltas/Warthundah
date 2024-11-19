@@ -13,7 +13,13 @@ public class Player : MonoBehaviour
 
     public float speed = 20.0f;
 
-    private AudioSource audioSource;
+    
+
+    public float engineOffVolume = 0.2f;
+
+    public float engineOnVolume = 0.5f;
+
+    
 
     [Header("Shooting")]
 
@@ -21,18 +27,27 @@ public class Player : MonoBehaviour
     public Transform bulletSpawn;
 
     public float fireRate = 0.5f;
-    
+
+    [Header("Sound")]
+
+    public float onVolume = 0.5f;
+
+    public float offVolume = 0.0f;
+
+    private AudioSource audioSource;
+
     void Start()
     {
-        InvokeRepeating("Shoot", 0.0f, fireRate);
         audioSource = GetComponent<AudioSource>();
+        InvokeRepeating("Shoot", 0.0f, fireRate);
+        
     }
 
     void Shoot()
     {
         Instantiate(bulletPrefab, bulletSpawn.position, transform.rotation);
         audioSource.pitch = Random.Range(0.5f, 1.6f);
-        audioSource.PlayOneShot(shot);
+        
     }
 
     
@@ -54,7 +69,16 @@ public class Player : MonoBehaviour
 
         transform.position += input * speed * Time.deltaTime;
 
-        if(input != Vector3.zero) 
+        if(input != Vector3.zero)
+        {
             transform.forward = input;
+            audioSource.volume = onVolume;
+        }
+        else
+        {
+            audioSource.volume = offVolume;
+        }
+            
+
     }
 }
