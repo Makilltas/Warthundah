@@ -6,9 +6,9 @@ public class Bullet : MonoBehaviour
 {
     public GameObject explosionPrefab;
 
-    public float speed = 20f;
+    public float speed = 50f;
 
-    public float lifetime = 4f;
+    public float lifetime = 5f;
 
     private void Start()
     {

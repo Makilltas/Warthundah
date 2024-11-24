@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    public AudioClip shot;
+    
 
     public bool isPlayer1 = true;
 
@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
 
+
     public float fireRate = 0.5f;
 
     [Header("Sound")]
@@ -33,11 +34,14 @@ public class Player : MonoBehaviour
     public float onVolume = 0.5f;
 
     public float offVolume = 0.0f;
-
+    
     private AudioSource audioSource;
+
+    
 
     void Start()
     {
+        
         audioSource = GetComponent<AudioSource>();
         InvokeRepeating("Shoot", 0.0f, fireRate);
         
@@ -45,8 +49,9 @@ public class Player : MonoBehaviour
 
     void Shoot()
     {
+        
         Instantiate(bulletPrefab, bulletSpawn.position, transform.rotation);
-        audioSource.pitch = Random.Range(0.5f, 1.6f);
+        
         
     }
 
@@ -73,12 +78,16 @@ public class Player : MonoBehaviour
         {
             transform.forward = input;
             audioSource.volume = onVolume;
+
         }
         else
         {
             audioSource.volume = offVolume;
+            
         }
             
 
     }
+
+
 }

@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7589777101812332901}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -104.64, y: 6.36, z: -10.82}
+  m_LocalPosition: {x: -104.64, y: 6.36, z: -9.943}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 242501672326237433, guid: 8e90fb273c337184f98d07eaf9180b86, type: 3}
-  speed: 20
-  lifetime: 2
+  speed: 30
+  lifetime: 4
 --- !u!1001 &8518790783842949165
 PrefabInstance:
   m_ObjectHideFlags: 0

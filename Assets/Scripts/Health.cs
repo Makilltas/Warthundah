@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms;
 
 public class Health : MonoBehaviour
 {
@@ -10,10 +12,16 @@ public class Health : MonoBehaviour
 
     private int health;
 
-    
+    public bool isPlayer1 = true;
+
+    private Player player;
+
+
     void Start()
     {
+        player = GetComponent<Player>();
         health = maxHealth;
+        
     }
 
 
@@ -25,9 +33,20 @@ public class Health : MonoBehaviour
 
         bar.localScale = new Vector3((float)health / maxHealth, 1, 1);
 
-        if ( health == 0 )
+        if (health == 0)
         {
-            print("me dead!!!");
+            if (isPlayer1)
+            {
+                print("P1 dead");
+                SceneManager.LoadScene("End2");
+            }
+            else
+            {
+                print("P2 dead");
+                SceneManager.LoadScene("End1");
+            }
+            
         }
     }
+   
 }
